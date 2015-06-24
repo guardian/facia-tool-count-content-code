@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>internalContenCode</title>
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+		<main class="main-content">
+			<div class="row">
+				<div class="card card--trend">
+					<div class="card-visual">
+						<canvas id="trend"></canvas>
+					</div>
+					<div class="card-content">
+						The graph shows the number of trails over time using
+						<ul class="legend">
+							<li><span class="legend--bg dataset-icc"></span><code>internalContentCode</code></li>
+							<li><span class="legend--bg dataset-ipc"></span><code>internalPageCode</code></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col half">
+					<div class="card card--internalContentCode burnt-orange">
+						<div class="card-content">
+							<code>internal<strong>Content</strong>Code</code>
+							<ul>
+								<li><span class="number icc--count_live">?</span> live</li>
+								<li><span class="number icc--count_draft">?</span> draft</li>
+								<li><span class="number icc--count_treats">?</span> treats</li>
+								<li><span class="number icc--count_supporting">?</span> supporting</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="col half">
+					<div class="card card--internalPageCode wave">
+						<div class="card-content">
+							<code>internal<strong>Page</strong>Code</code>
+							<ul>
+								<li><span class="number ipc--count_live">?</span> live</li>
+								<li><span class="number ipc--count_draft">?</span> draft</li>
+								<li><span class="number ipc--count_treats">?</span> treats</li>
+								<li><span class="number ipc--count_supporting">?</span> supporting</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col half">
+					<div class="card card--fronts honeydew">
+						<div class="card-content">
+							<span class="value number icc--count_fronts">?</span>
+							<strong>Fronts</strong> with internalContentCode
+						</div>
+					</div>
+				</div>
+
+				<div class="col half">
+					<div class="card card--collections honeydew">
+						<div class="card-content">
+							<span class="value number icc--count_collections">?</span>
+							<strong>Collections</strong> with internalContentCode
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="card card--details linen">
+					<div class="card-content">
+						Fronts with <code>internalContentCode</code>
+						<ul class="icc--front-details"></ul>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<script src="/vendor/chart/Chart.min.js"></script>
+		<script src="main.js"></script>
+	</body>
+</html>

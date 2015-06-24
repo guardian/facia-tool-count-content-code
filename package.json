@@ -1,0 +1,16 @@
+{
+  "name": "facia-tool-count-content-code",
+  "version": "1.0.0",
+  "description": "Track the occurrences of internalContentCode",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "aws-s3-facia-tool": "^0.4.0",
+    "aws-sdk": "^2.1.35",
+    "chart.js": "^1.0.2",
+    "express": "^4.13.0",
+    "lodash": "^3.9.3",
+    "mkdirp": "^0.5.1",
+    "native-promise-only": "^0.8.0-a"
+  }
+}
