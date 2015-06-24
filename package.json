@@ -12,5 +12,8 @@
     "lodash": "^3.9.3",
     "mkdirp": "^0.5.1",
     "native-promise-only": "^0.8.0-a"
+  },
+  "scripts": {
+    "start": "node index.js"
   }
 }
