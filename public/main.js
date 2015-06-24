@@ -16,10 +16,10 @@ fetch('/api/json').then(function (resp) {
 	return resp.json();
 })
 .then(function (json) {
-	console.log(json)
 	var ctx = document.getElementById('trend').getContext('2d');
 	var data = generateData(json);
-	var lastMeasure = json[json.length - 1].count;
+	var last = json.items[json.items.length - 1];
+	var lastMeasure = last.count;
 	var options = {
 		///Boolean - Whether grid lines are shown across the chart
 		scaleShowGridLines: true,
@@ -65,6 +65,19 @@ fetch('/api/json').then(function (resp) {
 	document.querySelector('.icc--front-details').innerHTML = lastMeasure.fronts.map(function (front) {
 		return '<li>' + front + '</li>';
 	}).join('');
+	var total = lastMeasure.articles + lastMeasure.others;
+	document.querySelector('.total-articles-icc').innerHTML = lastMeasure.contentCodeTotal;
+	document.querySelector('.icc--total_articles').innerHTML = lastMeasure.contentCodeTotal;
+	document.querySelector('.icc--total_trails').innerHTML = total;
+	document.querySelector('.icc--percentage').innerHTML = Math.round(lastMeasure.contentCodeTotal / total * 100);
+	document.querySelector('.ipc--total_articles').innerHTML = lastMeasure.pageCodeTotal;
+	document.querySelector('.ipc--total_trails').innerHTML = total;
+	document.querySelector('.ipc-percentage').innerHTML = Math.round(lastMeasure.pageCodeTotal / total * 100);
+	document.querySelector('.total-articles-count').innerHTML = lastMeasure.articles;
+	document.querySelector('.icc-percentage-of-articles').innerHTML = Math.round(100 * lastMeasure.contentCodeTotal / lastMeasure.articles);
+	document.querySelector('.date--created').innerHTML = json.created.date;
+	document.querySelector('.time--created').innerHTML = json.created.time;
+	document.querySelector('.date--last-measure').innerHTML = last.date;
 });
 
 function generateData (json) {
@@ -84,7 +97,7 @@ function generateData (json) {
 			labels: [],
 			datasets: [setContentCode, setPageCode]
 		};
-	json.forEach(function (measure) {
+	json.items.forEach(function (measure) {
 		data.labels.push(measure.date);
 		setContentCode.data.push(measure.count.contentCodeTotal);
 		setPageCode.data.push(measure.count.pageCodeTotal);

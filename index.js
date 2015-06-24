@@ -45,10 +45,18 @@ function parseItems (items) {
 }
 
 function startServer (items) {
-	var fromDynamo = items;
+	var fromDynamo = items,
+		pageCreated = new Date();
+
 	return new Promise(function (resolve) {
 		app.get('/api/json', function (req, res) {
-			res.send(fromDynamo);
+			res.send({
+				created: {
+					date: formatDate(pageCreated),
+					time: formatTime(pageCreated)
+				},
+				items: fromDynamo
+			});
 		});
 		app.use(express.static('public'));
 		app.use('/vendor/chart', express.static('node_modules/chart.js'));
@@ -56,6 +64,7 @@ function startServer (items) {
 			scanDynamo().then(parseItems)
 			.then(function (updates) {
 				fromDynamo = updates;
+				pageCreated = new Date();
 			});
 			res.redirect('/');
 		});
@@ -64,4 +73,23 @@ function startServer (items) {
 			resolve(server);
 		});
 	});
+}
+
+function pad (number) {
+	return number < 10 ? '0' + number : number;
+}
+
+function formatDate (date) {
+	return [
+		date.getFullYear(),
+		pad(date.getMonth() + 1),
+		pad(date.getDate())
+	].join('-');
+}
+
+function formatTime (date) {
+	return [
+		date.getHours(),
+		date.getMinutes()
+	].join(':');
 }

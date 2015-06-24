@@ -14,11 +14,12 @@
 						<canvas id="trend"></canvas>
 					</div>
 					<div class="card-content">
-						The graph shows the number of trails over time using
+						<p>The graph shows the number of trails over time using</p>
 						<ul class="legend">
 							<li><span class="legend--bg dataset-icc"></span><code>internalContentCode</code></li>
 							<li><span class="legend--bg dataset-ipc"></span><code>internalPageCode</code></li>
 						</ul>
+						<p>Out of <span class="number total-articles-count">?</span> articles, <span class="number total-articles-icc">?</span> are still using <code>internalContentCode</code>. That's <span class="number"><span class="number icc-percentage-of-articles">?</span>%</span> of all articles.</p>
 					</div>
 				</div>
 			</div>
@@ -34,6 +35,7 @@
 								<li><span class="number icc--count_treats">?</span> treats</li>
 								<li><span class="number icc--count_supporting">?</span> supporting</li>
 							</ul>
+							Total of <span class="number icc--total_articles">?</span> articles in <span class="number icc--total_trails">?</span> trails (<span class="number"><span class="icc--percentage">?</span>%</span>).
 						</div>
 					</div>
 				</div>
@@ -48,6 +50,7 @@
 								<li><span class="number ipc--count_treats">?</span> treats</li>
 								<li><span class="number ipc--count_supporting">?</span> supporting</li>
 							</ul>
+							Total of <span class="number ipc--total_articles">?</span> articles in <span class="number ipc--total_trails">?</span> trails (<span class="number"><span class="ipc-percentage">?</span>%</span>).
 						</div>
 					</div>
 				</div>
@@ -78,6 +81,19 @@
 					<div class="card-content">
 						Fronts with <code>internalContentCode</code>
 						<ul class="icc--front-details"></ul>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="card card--time">
+					<div class="card-content small">
+						<p>
+							Page created on <span class="date date--created">----/--/--</span> at <span class="date time--created">xx:xx</span>.
+							<br>
+							Last measure on <span class="date date--last-measure">----/--/--</span> at <span class="date">10:30</span>.
+						</p>
+						<p><a href="http://github.com/guardian/facia-tool-count-content-code">GitHub</a></p>
 					</div>
 				</div>
 			</div>

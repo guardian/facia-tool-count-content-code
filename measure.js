@@ -112,8 +112,14 @@ function countItems (model) {
 
 	count.collections = _.uniq(count.collections);
 	count.fronts = _.uniq(count.fronts);
-	count.contentCodeTotal = count.contentCode.live + count.contentCode.draft + count.contentCode.treats;
-	count.pageCodeTotal = count.pageCode.live + count.pageCode.draft + count.pageCode.treats;
+	count.contentCodeTotal = count.contentCode.live +
+		count.contentCode.draft +
+		count.contentCode.treats +
+		count.contentCode.supporting;
+	count.pageCodeTotal = count.pageCode.live +
+		count.pageCode.draft +
+		count.pageCode.treats +
+		count.contentCode.supporting;
 
 	model.count = count;
 	return model;
