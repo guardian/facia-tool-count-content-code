@@ -119,7 +119,7 @@ function countItems (model) {
 	count.pageCodeTotal = count.pageCode.live +
 		count.pageCode.draft +
 		count.pageCode.treats +
-		count.contentCode.supporting;
+		count.pageCode.supporting;
 
 	model.count = count;
 	return model;
